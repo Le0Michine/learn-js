@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en-Us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Basics</title>
+</head>
+
+<body>
+  <table border="1" width="100%" cellpadding="10px">
+    <tr align="center" height="100px"><td colspan="3"><h1>Guide to the city</h1></td></tr>
+    <tr align="left" valign="top" padding="10px">
+      <td width="150px">
+        <h2>Navigation</h2>
+        <ul>
+          <li><a href="https://www.tripadvisor.com/">Home</a></li>
+          <li><a href="https://www.tripadvisor.com/Hotels">Hotels</a></li>
+          <li><a href="https://www.tripadvisor.com/Restaurants">Restaurants</a></li>
+          <li><a href="https://www.tripadvisorsupport.com/hc/en-us">Contact</a></li>
+        </ul>
+      </td>
+      <td>
+        <table>
+          <tr>
+            <td>
+              <center><h1>Kraków</h1></center>
+              <p><img src="https://upload.wikimedia.org/wikipedia/commons/9/97/Krakow_78.jpg" alt="oops" height="200px" align="right">Kraków<sup><a href="#fn1" id="ref1">1</a></sup> is the second largest and one of the oldest cities in Poland. Situated on the Vistula River (Polish: Wisła) in the Lesser Poland region, the city dates back to the 7th century.[4] Kraków has traditionally been one of the leading centres of Polish academic, cultural, and artistic life and is one of Poland's most important economic hubs. It was the capital of the Crown of the Kingdom of Poland from 1038 to 1569; the Polish–Lithuanian Commonwealth from 1569 to 1795;[5] the Free City of Kraków from 1815 to 1846; the Grand Duchy  of Cracow from 1846 to 1918; and Kraków Voivodeship from the 14th century to 1998. It has been the capital of Lesser Poland Voivodeship since 1999.<sup><a href="#fn2" id="ref2">2</a></sup></p>
+              <ol>
+                <li id="fn1">Polish pronunciation: <i>[ˈkrakuf]</i>, also Cracow or Krakow<a href="#ref1" title="Jump back"></a></li>
+                <li id="fn2">Information source: Wikipedia<a href="#ref2" title="Jump back"></a></li>
+              </ol>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <h2>Tonight in Kraków:</h2>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <table width="100%">
+                <!-- html5 doesn't support align attribute in caption element -->
+                <!--<caption align="left"><h2>Tonight in Kraków:</h2></caption>-->
+                <thead align="left">
+                  <th>Event</th>
+                  <th>Location</th>
+                  <th>Time</th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Archive on Tour</td>
+                    <td>Forty Kleparz</td>
+                    <td>20:00</td>
+                  </tr>
+                  <tr>
+                    <td>Traditionsl Songs</td>
+                    <td>Main Square</td>
+                    <td>18:00</td>
+                  </tr>
+                </tbody>
+              </table>
+            </td>
+          </tr>
+        </table>
+      </td>
+      <td width="150px">
+        <form method="post" target="/">
+          <label for="username">Username:</label>
+          <input type="text" name="username" id="username">
+          <label for="password">Password:</label>
+          <input type="password" name="password" id="password">
+          <div>
+            <select name="role">
+              <option value="admin">Admin</option>
+              <option value="tester">Tester</option>
+              <option value="user">User</option>
+            </select>
+          </div>
+          <input type="checkbox" name="keepSignedIn" id="keepsignedin">
+          <label for="keepsignedin">Keep signed in</label>
+          <button type="submit">Sign-In</button>
+        </form>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
