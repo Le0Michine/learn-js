@@ -5,22 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Semantic HTML</title>
   <link rel="stylesheet" href="index.css"/>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
 <body>
   <header>
     <div class="social">
-      <div class="upper go-to">sign up for our weekly emails</div>
+      <div class="upper">sign up for our weekly emails<span class="small">&gt;&gt;</span></div>
       <div class="italic">goop Label: the December edition</div>
-      <div class="go-to"><span class="italic underline">Shop the collection</span></div>
+      <div><span class="italic underline">Shop the collection</span><span class="small">&gt;&gt;</span></div>
     </div>
     <div><h1 class="upper">City guide</h1></div>
     <div>
       <div class="login-search">
-        <div class="separated-links">
-          <a href="#">log in</a>
-          <a href="#">create account</a>
-          <a href="#">cart</a>
-        </div>
+        <ul class="separated-links">
+          <li><a href="#">log in</a></li>
+          <li><a href="#">create account</a></li>
+          <li><a href="#">cart</a></li>
+        </ul>
         <input class="top-buffer" type="text">
         <div class="top-buffer">
           <span><i>FREE SHIPPING</i> on US orders over $50 <a href="#">Details</a></span>
@@ -30,63 +31,63 @@
   </header>
   <nav>
     <div class="main-nav">
-      <div class="sections nav-line upper">
-        <span>shop</span>
-        <span>go</span>
-        <span>be</span>
-        <span>do</span>
-        <span>see</span>
-        <span>make</span>
-        <span>get</span>
-      </div>
-      <div class="subsections nav-line">
-        <span class="active">MORE</span>
-        <span>Sity Guides</span>
-        <span>Recipes</span>
-        <span>Skincare by goop</span>
-        <span>Goop label</span>
-      </div>
+      <ul class="sections nav-line upper">
+        <li>shop</li>
+        <li>go</li>
+        <li>be</li>
+        <li>do</li>
+        <li>see</li>
+        <li>make</li>
+        <li>get</li>
+      </ul>
+      <ul class="subsections nav-line">
+        <li class="active">MORE</li>
+        <li>Sity Guides</li>
+        <li>Recipes</li>
+        <li>Skincare by goop</li>
+        <li>Goop label</li>
+      </ul>
     </div>
   </nav>
-  <div class="breadcrumbs">
-    <a href="#">home</a>
-    <a href="#">go</a>
-  </div>
-  <section>
+  <ul class="breadcrumbs">
+    <li><a href="#">home</a></li>
+    <li><a href="#">go</a></li>
+  </ul>
+  <section class="main-section">
     <aside class="side-nav">
-      <div class="vsections">
-        <div class="vsection-title">city guides</div>
-        <div class="vsection arrow">Los-Angeles</div>
-        <div class="vsection arrow">New York</div>
-        <div class="vsection arrow">London</div>
-        <div class="vsection arrow">Paris</div>
-        <div class="vsection arrow">Amsterdam</div>
-        <div class="vsection arrow">Aspen</div>
-        <div class="vsection arrow">Barcelona</div>
-        <div class="vsection arrow">Charleston</div>
-        <div class="vsection arrow">Cabo</div>
-        <div class="vsection arrow">Chicago</div>
-      </div>
-      <div class="vsections top-buffer">
-        <div class="vsection-title">best of</div>
-        <div class="vsection">Cadillac Road to Table</div>
-        <div class="vsection">Chief Women's Culinary Guide to Chicago</div>
-        <div class="vsection">Five Days in Iceland with GP</div>
-        <div class="vsection">The Best Ice Cream Spots</div>
-        <div class="vsection">The Los Angeles Party Planning Guide</div>
-        <div class="vsection expand"><a href="#" class="">View All</a></div>
-      </div>
-      <div class="vsections top-buffer">
-        <div class="vsection-title">more travel</div>
-        <div class="vsection">Chief Ford's Culinary Guide to Miami</div>
-        <div class="vsection">Miami Road to Table Recap</div>
-        <div class="vsection">The London Guides</div>
-        <div class="vsection">Two Great Tips to Kick Off Ski Season</div>
-        <div class="vsection">Dallas Culinary Guide</div>
-        <div class="vsection expand"><a href="#" class="">View All</a></div>
-      </div>
+      <ul class="vsections">
+        <li class="vsection-title">city guides</li>
+        <li class="vsection arrow">Los-Angeles</li>
+        <li class="vsection arrow">New York</li>
+        <li class="vsection arrow">London</li>
+        <li class="vsection arrow">Paris</li>
+        <li class="vsection arrow">Amsterdam</li>
+        <li class="vsection arrow">Aspen</li>
+        <li class="vsection arrow">Barcelona</li>
+        <li class="vsection arrow">Charleston</li>
+        <li class="vsection arrow">Cabo</li>
+        <li class="vsection arrow">Chicago</li>
+      </ul>
+      <ul class="vsections top-buffer">
+        <li class="vsection-title">best of</li>
+        <li class="vsection">Cadillac Road to Table</li>
+        <li class="vsection">Chief Women's Culinary Guide to Chicago</li>
+        <li class="vsection">Five Days in Iceland with GP</li>
+        <li class="vsection">The Best Ice Cream Spots</li>
+        <li class="vsection">The Los Angeles Party Planning Guide</li>
+        <li class="vsection expand"><a href="#" class="">View All</a></li>
+      </ul>
+      <ul class="vsections top-buffer">
+        <li class="vsection-title">more travel</li>
+        <li class="vsection">Chief Ford's Culinary Guide to Miami</li>
+        <li class="vsection">Miami Road to Table Recap</li>
+        <li class="vsection">The London Guides</li>
+        <li class="vsection">Two Great Tips to Kick Off Ski Season</li>
+        <li class="vsection">Dallas Culinary Guide</li>
+        <li class="vsection expand"><a href="#" class="">View All</a></li>
+      </ul>
     </aside>
-    <div class="main"></div>
+    <article></article>
     <aside class="right-sidebar">
       <div class="shop">
         <h1>Shop</h1>
@@ -96,12 +97,12 @@
   </section>
   <footer>
     <div class="bottom-box">
-      <div class="separated-links center">
-        <a href="#">privacy & cookies policy</a>
-        <a href="#">web terms of use</a>
-        <a href="#">customer terms & conditions</a>
-        <a href="#">editorial policy</a>
-      </div>
+      <ul class="separated-links center">
+        <li><a href="#">privacy & cookies policy</a></li>
+        <li><a href="#">web terms of use</a></li>
+        <li><a href="#">customer terms & conditions</a></li>
+        <li><a href="#">editorial policy</a></li>
+      </ul>
       <span>©goop 2016 all rights reserved</span>
     </div>
   </footer>

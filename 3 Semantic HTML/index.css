@@ -1,4 +1,8 @@
-header, section {
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+header, section.main-section {
   display: flex;
 }
 
@@ -6,16 +10,18 @@ header {
   padding: 0 20px;
 }
 
-section {
+section.main-section {
   padding: 0 30px 25px 30px;
 }
 
-.main, header > div {
+article, header > div {
   flex: 1;
 }
 
-.main {
+article {
   text-align: center;
+  margin-right: 2%;
+  padding-bottom: 30px;
 }
 
 nav, header, footer {
@@ -43,11 +49,6 @@ footer {
   width: 13%;
 }
 
-.main {
-  margin-right: 2%;
-  padding-bottom: 30px;
-}
-
 .right-sidebar {
   width: 29%;
 }
@@ -58,9 +59,18 @@ footer {
   padding: 25px 20px;
 }
 
-.nav-line > span {
+.nav-line {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-line > li {
   cursor: pointer;
-  margin: 5px 10px;
+  margin: 0 10px;
 }
 
 .sections {
@@ -69,9 +79,6 @@ footer {
 }
 
 .subsections {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   font-style: italic;
 }
 
@@ -94,19 +101,21 @@ footer {
   text-decoration: underline;
 }
 
-.separated-links {
+ul.separated-links {
   text-transform: uppercase;
   text-align: center;
   display: flex;
   justify-content: flex-end;
+  list-style: none;
+  margin: 0;
 }
 
-.separated-links > a {
+ul.separated-links > li > a {
   padding: 0 4px;
   box-sizing: border-box;
 }
 
-.separated-links > a:not(:last-child) {
+ul.separated-links > li:not(:last-child) {
   border-right: 1px solid;
 }
 
@@ -145,6 +154,9 @@ input {
   display: flex;
   flex-direction: column;
   font-size: 0.8em;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .vsections > .vsection-title {
@@ -164,7 +176,7 @@ input {
 }
 
 .vsections > .arrow:after {
-  content: ">";
+  content: "\003e";
   left: 5px;
   position: relative;
 }
@@ -181,18 +193,22 @@ input {
 }
 
 .breadcrumbs {
+  margin: 0;
+  display: flex;
   margin-bottom: 10px;
   padding: 15px 30px;
+  list-style: none;
 }
 
-.breadcrumbs > a {
+.breadcrumbs > li > a {
   text-transform: capitalize;
   text-decoration: none;
   color: #666;
 }
 
-.breadcrumbs > a:not(:last-child):after {
-  content: " / ";
+.breadcrumbs > li:not(:last-child):after {
+  content: "/";
+  padding: 0 2px;
 }
 
 footer {
@@ -212,4 +228,8 @@ footer a, footer a:visited, footer a:active {
 
 footer .separated-links {
   justify-content: center;
+}
+
+.small {
+  font-size: 10px;
 }
