@@ -6,8 +6,13 @@ header {
   padding: 0 20px;
 }
 
+h1 {
+  text-align: center;
+}
+
 section {
   padding: 0 30px 25px 30px;
+  height: 200px;
 }
 
 .main, header > div {
@@ -22,12 +27,16 @@ header > div:nth-child(2n), section > div:nth-child(2n) {
   background-color: lightgray;
 }
 
-.main-nav, footer {
+nav, footer {
   box-sizing: border-box;
   padding: 0 30px;
-  width: 100%;
   text-align: center;
   background-color: antiquewhite;
+  height: 100px;
+}
+
+nav > div, header > div, .side-nav, .shop, .main {
+  padding: 20px;
 }
 
 footer {
@@ -36,17 +45,18 @@ footer {
 
 .side-nav {
   margin-top: 20px;
-  margin-right: 1%;
-  width: 13%;
+  margin-right: 10px;
+  width: 200px;
 }
 
 .main {
-  margin-right: 2%;
+  text-align: center;
+  margin-right: 10px;
   padding-bottom: 30px;
 }
 
 .shop {
-  width: 29%;
+  width: 200px;
 }
 
 section, header {
