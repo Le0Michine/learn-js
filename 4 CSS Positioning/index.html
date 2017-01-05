@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en-Us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Semantic HTML</title>
+  <link rel="stylesheet" href="index.css"/>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+  <header class="desktop-specific">
+    <div class="social">
+      <div class="upper">sign up for our weekly emails<span class="small">&gt;&gt;</span></div>
+      <div class="italic">goop Label: the December edition</div>
+      <div><span class="italic underline">Shop the collection</span><span class="small">&gt;&gt;</span></div>
+    </div>
+    <div><h1 class="upper">City guide</h1></div>
+    <div>
+      <div class="login-search">
+        <ul class="separated-links">
+          <li><a href="#">log in</a></li>
+          <li><a href="#">create account</a></li>
+          <li><a href="#" class="icon-bag"></a></li>
+        </ul>
+        <input class="top-buffer" type="text">
+        <div class="top-buffer">
+          <span><i>FREE SHIPPING</i> on US orders over $50 <a href="#">Details</a></span>
+        </div>
+      </div>
+    </div>
+  </header>
+  <header class="mobile-specific">
+    <div tabindex="0" class="mobile-navbar"><i class="material-icons">menu</i>
+      <nav class="mobile-specific">
+        <ul class="underlined-list">
+          <li><a href="#">shop</a></li>
+        </ul>
+        <h3>explore</h3>
+        <ul class="underlined-list">
+          <li><a href="#">go</a></li>
+          <li><a href="#">be</a></li>
+          <li><a href="#">do</a></li>
+          <li><a href="#">see</a></li>
+          <li><a href="#">make</a></li>
+          <li><a href="#">get</a></li>
+        </ul>
+        <ul class="mobile-login">
+          <li><a href="#">sign in</a></li>
+          <li><a href="#">bag</a></li>
+          <li><a href="#">my account</a></li>
+        </ul>
+      </nav>
+    </div>
+    <span>goop</span>
+    <a href="#" class="icon-bag pull-right"></a>
+  </header>
+  <div class="header-placeholder"></div>
+  <nav class="desktop-specific">
+    <div class="main-nav">
+      <ul class="sections nav-line upper">
+        <li>shop</li>
+        <li>go</li>
+        <li>be</li>
+        <li>do</li>
+        <li>see</li>
+        <li>make</li>
+        <li>get</li>
+      </ul>
+      <ul class="subsections nav-line">
+        <li class="active">MORE</li>
+        <li>City Guides</li>
+        <li>Recipes</li>
+        <li>Skincare by goop</li>
+        <li>Goop label</li>
+      </ul>
+    </div>
+  </nav>
+  <ul class="breadcrumbs desktop-specific">
+    <li><a href="#">home</a></li>
+    <li><a href="#">go</a></li>
+  </ul>
+  <select class="go-to mobile-specific">
+    <option value="default" disabled selected>Go to:</option>
+    <option value="more">more</option>
+    <option value="cityGuides">City Guides</option>
+    <option value="recipes">Recipes</option>
+    <option value="skincareByGoop">Skincare by goop</option>
+    <option value="goopLabel">Goop label</option>
+  </select>
+  <section class="main-section">
+    <aside class="side-nav desktop-specific">
+      <ul class="vsections">
+        <li class="vsection-title">city guides</li>
+        <li class="vsection arrow">Los-Angeles</li>
+        <li class="vsection arrow">New York</li>
+        <li class="vsection arrow">London</li>
+        <li class="vsection arrow">Paris</li>
+        <li class="vsection arrow">Amsterdam</li>
+        <li class="vsection arrow">Aspen</li>
+        <li class="vsection arrow">Barcelona</li>
+        <li class="vsection arrow">Charleston</li>
+        <li class="vsection arrow">Cabo</li>
+        <li class="vsection arrow">Chicago</li>
+      </ul>
+      <ul class="vsections top-buffer">
+        <li class="vsection-title">best of</li>
+        <li class="vsection">Cadillac Road to Table</li>
+        <li class="vsection">Chief Women's Culinary Guide to Chicago</li>
+        <li class="vsection">Five Days in Iceland with GP</li>
+        <li class="vsection">The Best Ice Cream Spots</li>
+        <li class="vsection">The Los Angeles Party Planning Guide</li>
+        <li class="vsection expand"><a href="#" class="">View All</a></li>
+      </ul>
+      <ul class="vsections top-buffer">
+        <li class="vsection-title">more travel</li>
+        <li class="vsection">Chief Ford's Culinary Guide to Miami</li>
+        <li class="vsection">Miami Road to Table Recap</li>
+        <li class="vsection">The London Guides</li>
+        <li class="vsection">Two Great Tips to Kick Off Ski Season</li>
+        <li class="vsection">Dallas Culinary Guide</li>
+        <li class="vsection expand"><a href="#" class="">View All</a></li>
+      </ul>
+    </aside>
+    <article>
+      <div class="category-title">
+        <div class="line"></div>
+        <div class="title"><img alt="lug" src="https://cdn.shopify.com/s/files/1/0690/5793/products/LOPL_leather_case_cognac_0446.jpg?v=1473273314"><h1>Go</h1></div>
+        <div class="line"></div>
+      </div>
+      <img src="http://goop.com/wp-content/uploads/2016/11/FREEDOMTOWER_MediaBakery_BLD0115024.jpg" />
+    </article>
+    <aside class="right-sidebar">
+      <div class="shop">
+        <h1>Shop</h1>
+        <div class="shop-all">shop all go</div>
+      </div>
+    </aside>
+  </section>
+  <footer>
+    <div class="bottom-box">
+      <ul class="separated-links center">
+        <li><a href="#">privacy & cookies policy</a></li>
+        <li><a href="#">web terms of use</a></li>
+        <li><a href="#">customer terms & conditions</a></li>
+        <li><a href="#">editorial policy</a></li>
+      </ul>
+      <span>©goop 2016 all rights reserved</span>
+    </div>
+  </footer>
+</body>
+</html>
