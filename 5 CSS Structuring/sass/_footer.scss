@@ -1,0 +1,18 @@
+footer {
+  padding: 48px 0 40px 0;
+  padding-top: 10px;
+  height: 50px;
+  background-color: #333;
+  text-align: center;
+  color: white;
+  font-size: 0.5em;
+  text-transform: uppercase;
+}
+
+footer a, footer a:visited, footer a:active {
+  color: white;
+}
+
+footer ul.separated-links {
+  justify-content: center;
+}

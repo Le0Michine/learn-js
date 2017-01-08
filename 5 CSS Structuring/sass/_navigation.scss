@@ -1,0 +1,104 @@
+nav {
+  text-align: center;
+  padding: 0 30px;
+}
+
+.main-nav {
+  @include border-top-bottom($color: black);
+}
+
+.side-nav {
+  margin-top: 20px;
+  margin-right: 1%;
+  width: 13%;
+}
+
+.nav-line {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-line > li {
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+.sections {
+  @include border-bottom($color: lightgray);
+  font-size: 1.3em;
+}
+
+.subsections {
+  font-style: italic;
+}
+
+.subsections .active {
+  padding: 3px;
+  background-color: lightgray;
+  font-style: normal;
+  text-transform: uppercase;
+}
+
+.lsidebar {
+  width: 150px;
+  padding-right: 10px;
+}
+
+.vsections {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.8em;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.vsections > .vsection-title {
+  padding: 5px 0;
+  font-size: 1.3em;
+  text-transform: uppercase;
+}
+
+.vsections > .vsection {
+  padding: 5px 0;
+  cursor: pointer;
+  text-transform: capitalize;
+}
+
+.vsections > .vsection:hover {
+  background-color: lightgray;
+}
+
+.vsections > .arrow:after {
+  content: "\003e";
+  left: 5px;
+  position: relative;
+}
+
+.vsections > .expand:hover {
+  background-color: initial;
+  cursor: initial;
+}
+
+.breadcrumbs {
+  margin: 0;
+  display: flex;
+  margin-bottom: 10px;
+  padding: 15px 30px;
+  list-style: none;
+}
+
+.breadcrumbs > li > a {
+  text-transform: capitalize;
+  text-decoration: none;
+  color: #666;
+}
+
+.breadcrumbs > li:not(:last-child):after {
+  content: "/";
+  padding: 0 2px;
+}
