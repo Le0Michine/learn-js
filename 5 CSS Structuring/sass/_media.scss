@@ -1,4 +1,4 @@
-@media all and (max-width: $min-desktop-width) {
+@media all and (max-width: $max-mobile-width) {
   .desktop-specific {
     display: none !important;
   }
