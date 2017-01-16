@@ -18,54 +18,67 @@ nav.mobile-specific {
   transition: $default-transition;
 }
 
-.mobile-navbar:focus nav.mobile-specific {
-  transform: translateX(0);
+.mobile-navbar {
+  &:focus {
+    nav.mobile-specific {
+      transform: translateX(0);
+    }
+  }
+
+  ul.underlined-list {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  ul.underlined-list > li {
+    @include border-bottom($color: lightgray);
+    text-align: left;
+    text-transform: capitalize;
+    padding: 5px 0;
+  }
+
+  h3 {
+    text-transform: uppercase;
+    font-weight: bold;
+    text-align: left;
+  }
 }
 
-.mobile-navbar ul.underlined-list {
-  list-style: none;
-  padding-left: 0;
-}
+ul {
+  &.mobile-login {
+    list-style: none;
+    padding-left: 0;
+    text-transform: uppercase;
+    text-align: left;
 
-.mobile-navbar ul.underlined-list > li {
-  @include border-bottom($color: lightgray);
-  text-align: left;
-  text-transform: capitalize;
-  padding: 5px 0;
-}
+    & > li {
+      padding: 5px 0;
 
-.mobile-navbar h3 {
-  text-transform: uppercase;
-  font-weight: bold;
-  text-align: left;
-}
+      & > a {
+        color: lightgray;
+        text-decoration: none;
+      }
+    }
+  }
 
-ul.mobile-login {
-  list-style: none;
-  padding-left: 0;
-  text-transform: uppercase;
-  text-align: left;
-}
+  &.underlined-list {
+    & > li {
+      & > a {
+        color: black;
+        text-decoration: none;
+      }
+    }
+  }
 
-ul.mobile-login > li {
-  padding: 5px 0;
-}
-
-ul.mobile-login > li > a {
-  color: lightgray;
-  text-decoration: none;
-}
-
-ul.underlined-list > li > a {
-  color: black;
-  text-decoration: none;
-}
-
-ul.mobile-login > li > a:focus,
-ul.mobile-login > li > a:hover,
-ul.underlined-list > li > a:focus,
-ul.underlined-list > li > a:hover {
-  color: indianred;
+  &.mobile-login, &.underlined-list {
+    & > li {
+      & > a {
+        &:focus, &:hover {
+          color: indianred;
+        }
+      }
+    }
+  }
 }
 
 select.go-to {

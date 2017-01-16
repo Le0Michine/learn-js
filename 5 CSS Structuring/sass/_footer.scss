@@ -7,12 +7,12 @@ footer {
   color: white;
   font-size: 0.5em;
   text-transform: uppercase;
-}
 
-footer a, footer a:visited, footer a:active {
-  color: white;
-}
+  a, a:visited, a:active {
+    color: white;
+  }
 
-footer ul.separated-links {
-  justify-content: center;
+  ul.separated-links {
+    justify-content: center;
+  }
 }

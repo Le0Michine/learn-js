@@ -20,12 +20,13 @@ nav {
   align-items: center;
   margin: 0;
   padding: 0;
+
+  & > li {
+    cursor: pointer;
+    margin: 0 10px;
+  }
 }
 
-.nav-line > li {
-  cursor: pointer;
-  margin: 0 10px;
-}
 
 .sections {
   @include border-bottom($color: lightgray);
@@ -34,14 +35,15 @@ nav {
 
 .subsections {
   font-style: italic;
+
+  .active {
+    padding: 3px;
+    background-color: lightgray;
+    font-style: normal;
+    text-transform: uppercase;
+  }
 }
 
-.subsections .active {
-  padding: 3px;
-  background-color: lightgray;
-  font-style: normal;
-  text-transform: uppercase;
-}
 
 .lsidebar {
   width: 150px;
@@ -55,34 +57,35 @@ nav {
   list-style: none;
   margin: 0;
   padding: 0;
+
+  & > .vsection-title {
+    padding: 5px 0;
+    font-size: 1.3em;
+    text-transform: uppercase;
+  }
+
+  & > .vsection {
+    padding: 5px 0;
+    cursor: pointer;
+    text-transform: capitalize;
+
+    &:hover {
+      background-color: lightgray;
+    }
+  }
+
+  & > .arrow:after {
+    content: "\003e";
+    left: 5px;
+    position: relative;
+  }
+
+  & > .expand:hover {
+    background-color: initial;
+    cursor: initial;
+  }
 }
 
-.vsections > .vsection-title {
-  padding: 5px 0;
-  font-size: 1.3em;
-  text-transform: uppercase;
-}
-
-.vsections > .vsection {
-  padding: 5px 0;
-  cursor: pointer;
-  text-transform: capitalize;
-}
-
-.vsections > .vsection:hover {
-  background-color: lightgray;
-}
-
-.vsections > .arrow:after {
-  content: "\003e";
-  left: 5px;
-  position: relative;
-}
-
-.vsections > .expand:hover {
-  background-color: initial;
-  cursor: initial;
-}
 
 .breadcrumbs {
   margin: 0;
@@ -90,15 +93,17 @@ nav {
   margin-bottom: 10px;
   padding: 15px 30px;
   list-style: none;
-}
 
-.breadcrumbs > li > a {
-  text-transform: capitalize;
-  text-decoration: none;
-  color: #666;
-}
+  & > li {
+    & > a {
+      text-transform: capitalize;
+      text-decoration: none;
+      color: #666;
+    }
 
-.breadcrumbs > li:not(:last-child):after {
-  content: "/";
-  padding: 0 2px;
+    &:not(:last-child):after {
+      content: "/";
+      padding: 0 2px;
+    }
+  }
 }

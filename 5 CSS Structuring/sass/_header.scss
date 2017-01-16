@@ -14,12 +14,12 @@ header {
 }
 
 .login-search {
-  text-align: right
-}
+  text-align: right;
 
-.login-search input {
-  max-width: 300px;
-  @include border-all($color: lightgray);
-  @include border-radius(0);
-  margin: 3px 0;
+  input {
+    max-width: 300px;
+    @include border-all($color: lightgray);
+    @include border-radius(0);
+    margin: 3px 0;
+  }
 }

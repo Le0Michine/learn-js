@@ -13,11 +13,12 @@
 
   .main-section {
     flex-direction: column;
+
+    article {
+      margin-right: 0;
+    }
   }
 
-  .main-section article {
-    margin-right: 0;
-  }
 }
 
 @media all and (min-width: $min-desktop-width) {

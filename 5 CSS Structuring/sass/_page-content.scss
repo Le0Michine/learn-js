@@ -6,25 +6,25 @@
 .category-title {
   display: flex;
   align-items: center;
-}
 
-.category-title > .line {
-  flex: 1;
-  @include border-top($color: lightgray);
-}
+  .line {
+    flex: 1;
+    @include border-top($color: lightgray);
+  }
 
-.category-title > .title {
-  display: flex;
-  align-items: center;
-  margin: 0 20px;
-}
+  .title {
+    display: flex;
+    align-items: center;
+    margin: 0 20px;
 
-.category-title > .title > img {
-  max-width: 100px;
-}
+    img {
+      max-width: 100px;
+    }
 
-.category-title > .title > h1 {
-  font-size: 3em;
-  padding-left: 10px;
-  margin: 0;
+    h1 {
+      font-size: 3em;
+      padding-left: 10px;
+      margin: 0;
+    }
+  }
 }
