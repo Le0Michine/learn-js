@@ -1,10 +1,10 @@
-header.mobile-specific {
+.header.mobile-specific {
   @include border-top-bottom($color: black);
   display: flex;
   justify-content: space-between;
 }
 
-nav.mobile-specific {
+.nav-bar.mobile-specific {
   position: fixed;
   overflow-y: auto;
   left: 0;
@@ -20,68 +20,58 @@ nav.mobile-specific {
 
 .mobile-navbar {
   &:focus {
-    nav.mobile-specific {
+    .nav-bar.mobile-specific {
       transform: translateX(0);
     }
   }
 
-  ul.underlined-list {
+  .underlined-list {
     list-style: none;
     padding-left: 0;
   }
 
-  ul.underlined-list > li {
+  .underlined-list > * {
     @include border-bottom($color: lightgray);
     text-align: left;
     text-transform: capitalize;
     padding: 5px 0;
   }
+}
 
-  h3 {
-    text-transform: uppercase;
-    font-weight: bold;
-    text-align: left;
+.mobile-login {
+  list-style: none;
+  padding-left: 0;
+  text-transform: uppercase;
+  text-align: left;
+  & > * {
+    padding: 5px 0;
+    a {
+      color: lightgray;
+      text-decoration: none;
+    }
   }
 }
 
-ul {
-  &.mobile-login {
-    list-style: none;
-    padding-left: 0;
-    text-transform: uppercase;
-    text-align: left;
-
-    & > li {
-      padding: 5px 0;
-
-      & > a {
-        color: lightgray;
-        text-decoration: none;
-      }
+.underlined-list {
+  & > * {
+    a {
+      color: black;
+      text-decoration: none;
     }
   }
+}
 
-  &.underlined-list {
-    & > li {
-      & > a {
-        color: black;
-        text-decoration: none;
-      }
-    }
-  }
-
-  &.mobile-login, &.underlined-list {
-    & > li {
-      & > a {
-        &:focus, &:hover {
-          color: indianred;
-        }
+.mobile-login, .underlined-list {
+  & > * {
+    a {
+      &:focus, &:hover {
+        color: indianred;
       }
     }
   }
 }
 
-select.go-to {
+.go-to {
   position: relative;
   @include border-all($color: lightgray);
   @include border-radius(0);

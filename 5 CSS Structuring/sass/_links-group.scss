@@ -1,4 +1,4 @@
-ul.separated-links {
+.separated-links {
   text-transform: uppercase;
   text-align: center;
   display: flex;
@@ -6,13 +6,14 @@ ul.separated-links {
   list-style: none;
   margin: 0;
 
-  & > li > a {
+  & > * {
     padding: 0 4px;
     box-sizing: border-box;
+
+    &:not(:last-child) {
+      @include border-right;
+    }
   }
 
-  & > li:not(:last-child) {
-    @include border-right;
-  }
 }
 

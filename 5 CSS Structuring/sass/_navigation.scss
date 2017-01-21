@@ -5,87 +5,84 @@ nav {
 
 .main-nav {
   @include border-top-bottom($color: black);
+
+  &-items {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+
+    & > * {
+      cursor: pointer;
+      margin: 0 10px;
+    }
+  }
+
+  .sections {
+    @include border-bottom($color: lightgray);
+    font-size: 1.3em;
+  }
+
+  .subsections {
+    font-style: italic;
+
+    .subsection-active {
+      padding: 3px;
+      background-color: lightgray;
+      font-style: normal;
+      text-transform: uppercase;
+    }
+  }
 }
 
 .side-nav {
   margin-top: 20px;
   margin-right: 1%;
   width: 13%;
-}
 
-.nav-line {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-  padding: 0;
+  &-sections {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.8em;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 
-  & > li {
-    cursor: pointer;
-    margin: 0 10px;
+    & > .side-nav-section-title {
+      padding: 5px 0;
+      font-size: 1.3em;
+      text-transform: uppercase;
+    }
+
+    & > .side-nav-section {
+      padding: 5px 0;
+      cursor: pointer;
+      text-transform: capitalize;
+
+      &:hover {
+        background-color: lightgray;
+      }
+    }
+
+    & > .arrow:after {
+      content: "\003e";
+      left: 5px;
+      position: relative;
+    }
+
+    & > .expand:hover {
+      background-color: initial;
+      cursor: initial;
+    }
   }
 }
-
-
-.sections {
-  @include border-bottom($color: lightgray);
-  font-size: 1.3em;
-}
-
-.subsections {
-  font-style: italic;
-
-  .active {
-    padding: 3px;
-    background-color: lightgray;
-    font-style: normal;
-    text-transform: uppercase;
-  }
-}
-
 
 .lsidebar {
   width: 150px;
   padding-right: 10px;
 }
-
-.vsections {
-  display: flex;
-  flex-direction: column;
-  font-size: 0.8em;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-
-  & > .vsection-title {
-    padding: 5px 0;
-    font-size: 1.3em;
-    text-transform: uppercase;
-  }
-
-  & > .vsection {
-    padding: 5px 0;
-    cursor: pointer;
-    text-transform: capitalize;
-
-    &:hover {
-      background-color: lightgray;
-    }
-  }
-
-  & > .arrow:after {
-    content: "\003e";
-    left: 5px;
-    position: relative;
-  }
-
-  & > .expand:hover {
-    background-color: initial;
-    cursor: initial;
-  }
-}
-
 
 .breadcrumbs {
   margin: 0;
@@ -94,8 +91,8 @@ nav {
   padding: 15px 30px;
   list-style: none;
 
-  & > li {
-    & > a {
+  & > * {
+    a {
       text-transform: capitalize;
       text-decoration: none;
       color: #666;

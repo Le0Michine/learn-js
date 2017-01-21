@@ -1,9 +1,9 @@
-article {
+.main-article {
   text-align: center;
   margin-right: 2%;
   padding-bottom: 30px;
 
-  img {
+  &-photo {
     width: 100%;
   }
 }
