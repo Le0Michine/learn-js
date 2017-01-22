@@ -102,7 +102,7 @@
               : game.cellsCountX + i * game.cellsCountX - i - 1;
       }
       winLine.forEach(i => cells[i].classList.add("cell-win"));
-      gameLogElement.innerText += `Player ${game.currentPlayer} wins\n`;
+      gameLogElement.innerText += `Player ${game.playerSign[game.currentPlayer]} wins\n`;
     } else {
       gameLogElement.innerText += "Draw\n";
     }
