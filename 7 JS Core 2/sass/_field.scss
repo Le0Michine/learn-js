@@ -1,0 +1,54 @@
+.game {
+  border-radius: 5px;
+  display: flex;
+  padding: 0;
+
+  &-field {
+    width: 210px;
+    height: 210px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+
+    &-cell {
+      width: 70px;
+      height: 70px;
+      border: 1px solid black;
+      background-color: lightgray;
+      pointer-events: all;
+      cursor: pointer;
+      position: relative;
+    }
+
+    &-cell.cell-active {
+      outline: 3px solid;
+      z-index: 10;
+    }
+
+    &-cell.cell-X, &-cell.cell-O {
+      pointer-events: none;
+    }
+
+    &-cell.cell-X {
+      .sign-X {
+        display: block;
+      }
+    }
+
+    &-cell.cell-O {
+      .sign-O {
+        display: block;
+      }
+    }
+
+    &-cell.cell-win {
+      background-color: greenyellow;
+    }
+  }
+
+  &-field.game-over &-field-cell {
+    pointer-events: none;
+  }
+}

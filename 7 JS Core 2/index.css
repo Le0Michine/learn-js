@@ -1,0 +1,117 @@
+* {
+  box-sizing: border-box; }
+
+button {
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1.25;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  border: 1px solid transparent;
+  padding: .5rem 1rem;
+  font-size: 1rem;
+  border-radius: .25rem;
+  color: #292b2c;
+  background-color: #fff;
+  border-color: #ccc;
+  cursor: pointer; }
+  button:active, button:hover {
+    color: #292b2c;
+    background-color: #e6e6e6;
+    background-image: none;
+    border-color: #adadad; }
+
+pre {
+  display: block;
+  padding: 9.5px;
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.4;
+  color: #333;
+  word-break: break-all;
+  word-wrap: break-word;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px; }
+
+.top-buffer-m {
+  margin-top: 10px; }
+
+.sign-X, .sign-O {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 5px;
+  display: none; }
+  .sign-X span, .sign-O span {
+    width: 100%;
+    height: 100%;
+    display: block; }
+
+.sign-O span {
+  top: 0;
+  left: 0;
+  border-width: 5px;
+  border-style: solid;
+  border-radius: 50%;
+  border-color: cornflowerblue; }
+
+.sign-X span {
+  position: relative; }
+  .sign-X span:before, .sign-X span:after {
+    content: "";
+    border: 2px solid;
+    border-radius: 2px;
+    margin-left: -2px;
+    margin-top: -2px;
+    position: absolute;
+    width: 0;
+    height: 100%;
+    left: 50%;
+    border-color: indianred; }
+  .sign-X span:before {
+    transform: rotateZ(45deg); }
+  .sign-X span:after {
+    transform: rotateZ(-45deg); }
+
+.game {
+  border-radius: 5px;
+  display: flex;
+  padding: 0; }
+  .game-field {
+    width: 210px;
+    height: 210px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap; }
+    .game-field-cell {
+      width: 70px;
+      height: 70px;
+      border: 1px solid black;
+      background-color: lightgray;
+      pointer-events: all;
+      cursor: pointer;
+      position: relative; }
+    .game-field-cell.cell-active {
+      outline: 3px solid;
+      z-index: 10; }
+    .game-field-cell.cell-X, .game-field-cell.cell-O {
+      pointer-events: none; }
+    .game-field-cell.cell-X .sign-X {
+      display: block; }
+    .game-field-cell.cell-O .sign-O {
+      display: block; }
+    .game-field-cell.cell-win {
+      background-color: greenyellow; }
+  .game-field.game-over .game-field-cell {
+    pointer-events: none; }
+
+.game-controls {
+  padding-left: 10px; }
+
+/*# sourceMappingURL=index.css.map */
