@@ -89,6 +89,8 @@ pre {
     margin: 0;
     display: flex;
     flex-wrap: wrap; }
+    .game-field.game-over .game-field-cell {
+      pointer-events: none; }
     .game-field-cell {
       width: 70px;
       height: 70px;
@@ -97,19 +99,17 @@ pre {
       pointer-events: all;
       cursor: pointer;
       position: relative; }
-    .game-field-cell.cell-active {
-      outline: 3px solid;
-      z-index: 10; }
-    .game-field-cell.cell-X, .game-field-cell.cell-O {
-      pointer-events: none; }
-    .game-field-cell.cell-X .sign-X {
-      display: block; }
-    .game-field-cell.cell-O .sign-O {
-      display: block; }
-    .game-field-cell.cell-win {
-      background-color: greenyellow; }
-  .game-field.game-over .game-field-cell {
-    pointer-events: none; }
+      .game-field-cell.cell-active {
+        outline: 3px solid;
+        z-index: 10; }
+      .game-field-cell.cell-X, .game-field-cell.cell-O {
+        pointer-events: none; }
+      .game-field-cell.cell-X .sign-X {
+        display: block; }
+      .game-field-cell.cell-O .sign-O {
+        display: block; }
+      .game-field-cell.cell-win {
+        background-color: greenyellow; }
 
 .game-controls {
   padding-left: 10px; }
