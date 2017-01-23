@@ -71,28 +71,27 @@ h3 {
 .mobile-navbar .underlined-list {
   list-style: none;
   padding-left: 0; }
-.mobile-navbar .underlined-list > * {
-  border-bottom: 1px solid lightgray;
-  text-align: left;
-  text-transform: capitalize;
-  padding: 5px 0; }
+  .mobile-navbar .underlined-list-item {
+    border-bottom: 1px solid lightgray;
+    text-align: left;
+    text-transform: capitalize;
+    padding: 5px 0; }
+    .mobile-navbar .underlined-list-item a {
+      color: black;
+      text-decoration: none; }
 
 .mobile-login {
   list-style: none;
   padding-left: 0;
   text-transform: uppercase;
   text-align: left; }
-  .mobile-login > * {
+  .mobile-login-item {
     padding: 5px 0; }
-    .mobile-login > * a {
+    .mobile-login-item a {
       color: lightgray;
       text-decoration: none; }
 
-.underlined-list > * a {
-  color: black;
-  text-decoration: none; }
-
-.mobile-login > * a:focus, .mobile-login > * a:hover, .underlined-list > * a:focus, .underlined-list > * a:hover {
+.mobile-login a:focus, .mobile-login a:hover, .underlined-list-item a:focus, .underlined-list-item a:hover {
   color: indianred; }
 
 .go-to {
@@ -174,14 +173,14 @@ nav {
 .main-nav {
   border-top: 1px solid black;
   border-bottom: 1px solid black; }
-  .main-nav-items {
+  .main-nav-menu {
     list-style: none;
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0;
     padding: 0; }
-    .main-nav-items > * {
+    .main-nav-menu-item {
       cursor: pointer;
       margin: 0 10px; }
   .main-nav .sections {
@@ -234,11 +233,11 @@ nav {
   margin-bottom: 10px;
   padding: 15px 30px;
   list-style: none; }
-  .breadcrumbs > * a {
+  .breadcrumbs-item a {
     text-transform: capitalize;
     text-decoration: none;
     color: #666; }
-  .breadcrumbs > *:not(:last-child):after {
+  .breadcrumbs-item:not(:last-child):after {
     content: "/";
     padding: 0 2px; }
 
@@ -289,10 +288,10 @@ nav {
   justify-content: flex-end;
   list-style: none;
   margin: 0; }
-  .separated-links > * {
+  .separated-links > .separated-link {
     padding: 0 4px;
     box-sizing: border-box; }
-    .separated-links > *:not(:last-child) {
+    .separated-links > .separated-link:not(:last-child) {
       border-right: 1px solid; }
 
 .main-section {

@@ -12,6 +12,10 @@
     display: flex;
     flex-wrap: wrap;
 
+    &.game-over &-cell {
+      pointer-events: none;
+    }
+
     &-cell {
       width: 70px;
       height: 70px;
@@ -20,35 +24,32 @@
       pointer-events: all;
       cursor: pointer;
       position: relative;
-    }
 
-    &-cell.cell-active {
-      outline: 3px solid;
-      z-index: 10;
-    }
+      &.cell-active {
+        outline: 3px solid;
+        z-index: 10;
+      }
 
-    &-cell.cell-X, &-cell.cell-O {
-      pointer-events: none;
-    }
+      &.cell-X, &.cell-O {
+        pointer-events: none;
+      }
 
-    &-cell.cell-X {
-      .sign-X {
-        display: block;
+      &.cell-X {
+        .sign-X {
+          display: block;
+        }
+      }
+
+      &.cell-O {
+        .sign-O {
+          display: block;
+        }
+      }
+
+      &.cell-win {
+        background-color: greenyellow;
       }
     }
 
-    &-cell.cell-O {
-      .sign-O {
-        display: block;
-      }
-    }
-
-    &-cell.cell-win {
-      background-color: greenyellow;
-    }
-  }
-
-  &-field.game-over &-field-cell {
-    pointer-events: none;
   }
 }
