@@ -11,14 +11,14 @@ const parser = function(input, extraOperators) {
   const operatorSigns = operators.map(x => x.escaped || x.operator);
   // get string: (+)|(-)|(*)|(/)|(avg) ... for regexp
   const operatorRegexPart = `(${operatorSigns.join(')|(')})`;
-  const operatorsAndOperands = new RegExp('^([\\d ]|' + operatorRegexPart + ')*$');
+  const operatorsAndOperands = new RegExp(`^([\\d ]|${operatorRegexPart})*$`);
   if (!input || !input.trim()) {
     throw new Error('input string is empty or undefined');
   }
   if (!operatorsAndOperands.test(input)) {
     throw new Error('input has incorrect format');
   }
-  const matches = input.match(new RegExp('(-?\\d+)|' + operatorRegexPart, 'g'));
+  const matches = input.match(new RegExp(`(-?\\d+)|${operatorRegexPart}`, 'g'));
   const stack = [];
   for (let match of matches) {
     const operator = operators.find(x => x.operator === match);
