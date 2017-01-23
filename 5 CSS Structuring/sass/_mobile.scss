@@ -28,13 +28,18 @@
   .underlined-list {
     list-style: none;
     padding-left: 0;
-  }
 
-  .underlined-list > * {
-    @include border-bottom($color: lightgray);
-    text-align: left;
-    text-transform: capitalize;
-    padding: 5px 0;
+    &-item {
+      @include border-bottom($color: lightgray);
+      text-align: left;
+      text-transform: capitalize;
+      padding: 5px 0;
+
+      a {
+        color: black;
+        text-decoration: none;
+      }
+    }
   }
 }
 
@@ -43,7 +48,7 @@
   padding-left: 0;
   text-transform: uppercase;
   text-align: left;
-  & > * {
+  &-item {
     padding: 5px 0;
     a {
       color: lightgray;
@@ -52,21 +57,10 @@
   }
 }
 
-.underlined-list {
-  & > * {
-    a {
-      color: black;
-      text-decoration: none;
-    }
-  }
-}
-
-.mobile-login, .underlined-list {
-  & > * {
-    a {
-      &:focus, &:hover {
-        color: indianred;
-      }
+.mobile-login, .underlined-list-item {
+  a {
+    &:focus, &:hover {
+      color: indianred;
     }
   }
 }

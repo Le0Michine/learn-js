@@ -6,7 +6,7 @@ nav {
 .main-nav {
   @include border-top-bottom($color: black);
 
-  &-items {
+  &-menu {
     list-style: none;
     display: flex;
     justify-content: center;
@@ -14,7 +14,7 @@ nav {
     margin: 0;
     padding: 0;
 
-    & > * {
+    &-item {
       cursor: pointer;
       margin: 0 10px;
     }
@@ -91,7 +91,7 @@ nav {
   padding: 15px 30px;
   list-style: none;
 
-  & > * {
+  &-item {
     a {
       text-transform: capitalize;
       text-decoration: none;
