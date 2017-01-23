@@ -1,9 +1,9 @@
-var assert = require('assert');
-var parser = require('./parser');
+let assert = require('assert');
+let parser = require('./parser');
 
 describe('parser', () => {
   describe('happy day', () => {
-    var testData = [
+    let testData = [
       { input: "5", result: "5"},
       { input: "5 4 *", result: "20"},
       { input: "52 14 *", result: "728"},
@@ -17,7 +17,7 @@ describe('parser', () => {
       it ('should return ' + testCase.result + ' for input "' + testCase.input + '"', () => {
         // arrange
         // act
-        var result = parser(testCase.input);
+        let result = parser(testCase.input);
 
         // assert
         assert.equal(result, testCase.result);
@@ -26,7 +26,7 @@ describe('parser', () => {
   });
 
   describe('negative', () => {
-    var testData = [
+    let testData = [
       { input: "-" },
       { input: "5 -" },
       { input: "5 6 - +" },
@@ -47,7 +47,7 @@ describe('parser', () => {
   });
 
   describe('extra operators', () => {
-    var extraOperators = [
+    let extraOperators = [
       { operator: '%', method: (a, b) => a % b },
       { operator: 'avg', method: (a, b) => (a + b) / 2 }
     ];
@@ -62,7 +62,7 @@ describe('parser', () => {
     it('should return 3 for input "1 2 3 % +"', () => {
       // arrange
       // act
-      var result = parser("1 2 3 % +", extraOperators);
+      let result = parser("1 2 3 % +", extraOperators);
 
       // assert
       assert.equal(result, '3');
@@ -71,7 +71,7 @@ describe('parser', () => {
     it('should return 3 for input "2 7 avg"', () => {
       // arrange
       // act
-      var result = parser("2 7 avg", extraOperators);
+      let result = parser("2 7 avg", extraOperators);
 
       // assert
       assert.equal(result, '4.5');
