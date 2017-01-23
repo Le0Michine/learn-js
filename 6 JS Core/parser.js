@@ -1,5 +1,5 @@
 // let operators = ["*", "/", "+", "-"];
-const operators = [
+const defaultOperators = [
   { operator: '*', method: (a, b) => a * b, escaped: '\\*' },
   { operator: '/', method: (a, b) => a / b, escaped: '\\/' },
   { operator: '+', method: (a, b) => a + b, escaped: '\\+' },
@@ -7,9 +7,9 @@ const operators = [
 ];
 
 const parser = function(input, extraOperators) {
-  const allOperators = extraOperators ? extraOperators.concat(operators) : operators;
-  const operatorSigns = allOperators.map(x => x.operator);
-  const operatorsRegex = '(' + allOperators.map(x => x.escaped || x.operator).join(')|(') + ')';
+  const operators = extraOperators ? extraOperators.concat(defaultOperators) : defaultOperators;
+  const operatorSigns = operators.map(x => x.operator);
+  const operatorsRegex = '(' + operators.map(x => x.escaped || x.operator).join(')|(') + ')';
   const operatorsAndNumbers = new RegExp('^([\\d ]|' + operatorsRegex + ')*$');
   if (!input || !input.trim()) {
     throw new Error('input string is empty or undefined');
@@ -27,7 +27,7 @@ const parser = function(input, extraOperators) {
       } else {
         const op2 = stack.pop();
         const op1 = stack.pop();
-        stack.push(allOperators[i].method(op1, op2));
+        stack.push(operators[i].method(op1, op2));
       }
     } else if (!isNaN(match)) {
       stack.push(+match);
