@@ -8,12 +8,13 @@ const defaultOperators = [
 
 const parser = function(input, extraOperators) {
   const operators = defaultOperators.concat(extraOperators || []);
-  const operatorRegexPart = `(${operators.map(x => x.escaped || x.operator).join(')|(')})`;
-  const operatorsAndNumbers = new RegExp('^([\\d ]|' + operatorRegexPart + ')*$');
+  const operatorSigns = operators.map(x => x.escaped || x.operator);
+  const operatorRegexPart = `(${operatorSigns.join(')|(')})`;
+  const operatorsAndOperands = new RegExp('^([\\d ]|' + operatorRegexPart + ')*$');
   if (!input || !input.trim()) {
     throw new Error('input string is empty or undefined');
   }
-  if (!operatorsAndNumbers.test(input)) {
+  if (!operatorsAndOperands.test(input)) {
     throw new Error('input has incorrect format');
   }
   const matches = input.match(new RegExp('(-?\\d+)|' + operatorRegexPart, 'g'));
