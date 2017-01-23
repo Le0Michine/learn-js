@@ -9,6 +9,7 @@ const defaultOperators = [
 const parser = function(input, extraOperators) {
   const operators = defaultOperators.concat(extraOperators || []);
   const operatorSigns = operators.map(x => x.escaped || x.operator);
+  // get string: (+)|(-)|(*)|(/)|(avg) ... for regexp
   const operatorRegexPart = `(${operatorSigns.join(')|(')})`;
   const operatorsAndOperands = new RegExp('^([\\d ]|' + operatorRegexPart + ')*$');
   if (!input || !input.trim()) {
