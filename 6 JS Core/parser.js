@@ -1,3 +1,4 @@
+"use strict"
 // let operators = ["*", "/", "+", "-"];
 const defaultOperators = [
   { operator: '*', method: (a, b) => a * b, escaped: '\\*' },
