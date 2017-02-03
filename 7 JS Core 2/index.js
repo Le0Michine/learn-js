@@ -1,17 +1,17 @@
 (function() {
-  var cells;
-  var activeCell = 0;
+  let cells;
+  let activeCell = 0;
   const activeCellClass = "cell-active";
   const gameFieldElement = document.getElementById("gameField");
   const gameLogElement = document.getElementById("gameLog");
 
   function TicTacToe() {
-    var self = this;
-    var currentPlayer = 0;
+    const self = this;
+    const currentPlayer = 0;
     const cellsCountX = 3;
     const playerSign = ["X", "O"];
 
-    var state = Array(Math.pow(cellsCountX, 2)).fill(0);
+    const state = Array(Math.pow(cellsCountX, 2)).fill(0);
 
     this.game = {
       currentPlayer,
@@ -22,34 +22,34 @@
     };
 
     this.isGameOver = () => {
-      var game = self.game;
+      const game = self.game;
       const getWeight = (x) => x === game.playerSign[0] ? -1 : !x ? 0 : +1;
-      var d1 = 0;
-      var d2 = 0;
-      for (var i = 0; i < game.cellsCountX; i++) {
-        var v = 0;
-        var h = 0;
-        for (var j = 0; j < game.cellsCountX; j++) {
-          h += getWeight(game.state[i * game.cellsCountX + j]);
-          v += getWeight(game.state[i + game.cellsCountX * j]);
+      let diagonal1 = 0;
+      let diagonal2 = 0;
+      for (let i = 0; i < game.cellsCountX; i++) {
+        let vertical = 0;
+        let horizontal = 0;
+        for (let j = 0; j < game.cellsCountX; j++) {
+          horizontal += getWeight(game.state[i * game.cellsCountX + j]);
+          vertical += getWeight(game.state[i + game.cellsCountX * j]);
         }
-        v = Math.abs(v);
-        h = Math.abs(h);
-        if (v === 3 || h === 3) {
+        vertical = Math.abs(vertical);
+        horizontal = Math.abs(horizontal);
+        if (vertical === 3 || horizontal === 3) {
           return {
-            start: v === 3 ? i : i * game.cellsCountX,
-            direction: v === 3 ? TicTacToe.winLineDirection.VERTICAL : TicTacToe.winLineDirection.HORIZONTAL,
+            start: vertical === 3 ? i : i * game.cellsCountX,
+            direction: vertical === 3 ? TicTacToe.winLineDirection.VERTICAL : TicTacToe.winLineDirection.HORIZONTAL,
             result: TicTacToe.gameResult.WIN
           };
         }
-        d1 += getWeight(game.state[i * game.cellsCountX + i]);
-        d2 += getWeight(game.state[game.cellsCountX + i * game.cellsCountX - i - 1]);
+        diagonal1 += getWeight(game.state[i * game.cellsCountX + i]);
+        diagonal2 += getWeight(game.state[game.cellsCountX + i * game.cellsCountX - i - 1]);
       }
-      d1 = Math.abs(d1);
-      d2 = Math.abs(d2);
-      if (d1 === 3 || d2 === 3) {
+      diagonal1 = Math.abs(diagonal1);
+      diagonal2 = Math.abs(diagonal2);
+      if (diagonal1 === 3 || diagonal2 === 3) {
         return {
-          direction: d1 === 3 ? TicTacToe.winLineDirection.DIAGONAL : TicTacToe.winLineDirection.BACKDIAGONAL,
+          direction: diagonal1 === 3 ? TicTacToe.winLineDirection.DIAGONAL : TicTacToe.winLineDirection.BACKDIAGONAL,
           result: TicTacToe.gameResult.WIN
         };
       }
@@ -79,7 +79,7 @@
     cell.classList.add(`cell-${ticTacToe.game.playerSign[ticTacToe.game.currentPlayer]}`);
     gameLogElement.innerText += `${ticTacToe.game.playerSign[ticTacToe.game.currentPlayer]}: ${cell.id}\n`;
 
-    var result;
+    let result;
     if (result = ticTacToe.isGameOver(ticTacToe.game)) {
       console.log(`Game over, ${ticTacToe.game.playerSign[ticTacToe.game.currentPlayer]} wins`, result);
       endGame(ticTacToe.game, result);
@@ -87,20 +87,18 @@
     ticTacToe.game.currentPlayer = (ticTacToe.game.currentPlayer + 1) % 2;
   }
 
-  function endGame(game, result) {
+  function endGame(game, gameResult) {
     gameFieldElement.classList.add("game-over");
 
-    if (result.result === TicTacToe.gameResult.WIN) {
-      var winLine = Array(game.cellsCountX);
-      for (var i = 0; i < game.cellsCountX; i++) {
-        winLine[i] = result.direction === TicTacToe.winLineDirection.HORIZONTAL
-          ? result.start + i
-          : result.direction === TicTacToe.winLineDirection.VERTICAL
-            ? result.start + i * game.cellsCountX
-            : result.direction === TicTacToe.winLineDirection.DIAGONAL
+    if (gameResult.result === TicTacToe.gameResult.WIN) {
+      let winLine = Array(game.cellsCountX).fill(0);
+      winLine = winLine.map((x, i) => gameResult.direction === TicTacToe.winLineDirection.HORIZONTAL
+          ? gameResult.start + i
+          : gameResult.direction === TicTacToe.winLineDirection.VERTICAL
+            ? gameResult.start + i * game.cellsCountX
+            : gameResult.direction === TicTacToe.winLineDirection.DIAGONAL
               ? i * game.cellsCountX + i
-              : game.cellsCountX + i * game.cellsCountX - i - 1;
-      }
+              : game.cellsCountX + i * game.cellsCountX - i - 1);
       winLine.forEach(i => cells[i].classList.add("cell-win"));
       gameLogElement.innerText += `Player ${game.playerSign[game.currentPlayer]} wins\n`;
     } else {
@@ -111,8 +109,8 @@
   }
 
   function startGame() {
-    var ticTacToe = new TicTacToe();
-    var cellTemplate = document.getElementById("cellTemplate");
+    const ticTacToe = new TicTacToe();
+    const cellTemplate = document.getElementById("cellTemplate");
     gameFieldElement.innerHTML = "";
     gameLogElement.innerText = "Log:\n";
     gameFieldElement.classList.remove("game-over");
@@ -120,13 +118,13 @@
     activeCell = 0;
     cells = [];
 
-    var createOnclickHandler = (i, cell) => () => selectCell(i, ticTacToe, cell);
+    const createOnclickHandler = (i, cell) => () => selectCell(i, ticTacToe, cell);
 
     ticTacToe.game.state.forEach((v, i) => {
-      var cell = document.importNode(cellTemplate.content, true);
+      const cell = document.importNode(cellTemplate.content, true);
       cellElement = cell.firstElementChild;
       cellElement.onclick = createOnclickHandler(i, cellElement);
-      var point = inflateCoordinates(i, ticTacToe.game.cellsCountX);
+      const point = inflateCoordinates(i, ticTacToe.game.cellsCountX);
       cellElement.id = `(${point.x + 1},${point.y + 1})`;
       cells.push(cellElement);
       gameFieldElement.appendChild(cell);
@@ -136,7 +134,7 @@
   };
 
   function initControls() {
-    var newGameBtn = document.getElementById("newGame");
+    const newGameBtn = document.getElementById("newGame");
     newGameBtn.onclick = () => startGame();
   }
 
@@ -148,7 +146,7 @@
     const ENTER = 13;
     const SPACE = 32;
 
-    var point = inflateCoordinates(activeCell, fieldSize)
+    const point = inflateCoordinates(activeCell, fieldSize)
 
     if (event.keyCode === ENTER || event.keyCode === SPACE) {
       cells[activeCell].click();
