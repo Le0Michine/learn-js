@@ -1,0 +1,15 @@
+{
+  "name": "jscore2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "rollup": "^0.41.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build": "rollup -i ./src/main.js --output index.js --format es"
+  },
+  "author": "Lev Mishin",
+  "license": "ISC"
+}
