@@ -1,0 +1,42 @@
+@mixin border($border-type, $width: 1px, $color: false) {
+  @if not $color {
+    #{$border-type}: $width solid;
+  } @else {
+    #{$border-type}: $width solid $color;
+  }
+}
+
+@mixin border-top($width: 1px, $color: false) {
+  @include border(border-top, $width, $color);
+}
+
+@mixin border-bottom($width: 1px, $color: false) {
+  @include border(border-bottom, $width, $color);
+}
+
+@mixin border-left($width: 1px, $color: false) {
+  @include border(border-left, $width, $color);
+}
+
+@mixin border-right($width: 1px, $color: false) {
+  @include border(border-right, $width, $color);
+}
+
+@mixin border-top-bottom($width: 1px, $color: false) {
+  @include border-top($width, $color);
+  @include border-bottom($width, $color);
+}
+
+@mixin border-all($width: 1px, $color: false) {
+  @include border-top($width, $color);
+  @include border-bottom($width, $color);
+  @include border-left($width, $color);
+  @include border-right($width, $color);
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
+}

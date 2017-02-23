@@ -1,0 +1,25 @@
+.header {
+  position: fixed;
+  display: flex;
+  top: 0;
+  background-color: white;
+  z-index: 10;
+  @include border-bottom($color: black);
+  padding: 8px 30px;
+
+  &-social {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-login-search-panel {
+    text-align: right;
+
+    input {
+      max-width: 300px;
+      @include border-all($color: lightgray);
+      @include border-radius(0);
+      margin: 3px 0;
+    }
+  }
+}

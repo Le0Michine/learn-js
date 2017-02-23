@@ -1,0 +1,17 @@
+{
+  "name": "dom-spa-history-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "lite-server": "^2.2.2"
+  },
+  "scripts": {
+    "styles": "sass sass/index.scss:./index.css --watch",
+    "serve": "lite-server"
+  },
+  "author": "Lev Mishin",
+  "license": "ISC"
+}
