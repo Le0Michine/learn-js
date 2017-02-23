@@ -61,7 +61,7 @@ class Router {
 
 
 (function wd(rootName) {
-  const root = document.querySelector('[wd-root=app]');
+  const root = document.querySelector(`[wd-root=${rootName}]`);
 
   if (!root) {
     throw new Error(`Unable to find root element with name ${rootName}`);
