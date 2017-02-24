@@ -1,0 +1,11 @@
+.shop {
+  @include border-all($color: black);
+  text-align: center;
+  padding: 25px 20px;
+
+  &-all {
+    @include border-all($color: black);
+    text-transform: uppercase;
+    padding: 8px 10px;
+  }
+}
