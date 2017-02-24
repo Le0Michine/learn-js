@@ -93,6 +93,5 @@ const ROUTES = [
     }
   }
 
-  const wd = new WD();
   WD.createRoot('app');
 })();
