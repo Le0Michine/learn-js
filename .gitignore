@@ -3,3 +3,6 @@
 /8-DOM-SPA-History-API/
 node_modules/
 *.map
+
+npm-debug*
+.vscode/
