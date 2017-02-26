@@ -1,48 +1,53 @@
 wd = (function() {
   class Router {
-    constructor(routes, basePath, onNavigation) {
-      console.log('init router', location.pathname);
+    constructor(basePath) {
+      console.log('init router', location.pathname, basePath);
 
-      this.routes = routes || [];
+      this.routes = [];
       this.basePath = basePath ? basePath.replace(/\/$/,'') : basePath;
+      this.apps = {};
+      this.listenLinks();
+      this.listenNavigationEvents();
+    }
+
+    addRoutes(routes, appName, onNavigation) {
+      this.routes = this.routes.concat(routes.map(r => Object.assign({}, r, { app: appName })));
+      this.apps[appName] = onNavigation || (() => void 0);
       this.currentRoute = this.toShortPath(location.pathname);
 
       if (!this.routes.find(r => r.url === this.currentRoute)) {
         throw new Error(`Unknown path ${this.currentRoute}`);
       }
 
-      document.querySelectorAll('a[route]')
-        .forEach(link => {
-          link.href = link.href.replace(location.origin, this.basePath || '');
-          link.addEventListener('click', (event) => {
-            event.preventDefault();
-            this.navigate(link.href);
-          });
-        });
+      this.apps[appName](this.toFullPath(this.routes.find(r => r.url === this.currentRoute).templateUrl));
+    }
 
+    listenNavigationEvents() {
       document.addEventListener('navigate', () => {
         const path = location.pathname;
-        const route = this.routes.find(r => r.url === this.toShortPath(path));
+        const route = this.routes.filter(r => r.url === this.toShortPath(path));
 
-        if (!route) {
+        if (!route.length) {
           throw new Error(`Unknown path '${path}'`)
         } else {
-          console.log('navigate to', path);
+          Logger.logGroup('navigate to', route);
           this.currentRoute = this.toShortPath(path);
-          onNavigation(this.toFullPath(route.templateUrl));
+          route.forEach(r => this.apps[r.app](this.toFullPath(r.templateUrl)));
         }
       });
 
       window.addEventListener('popstate', () => {
         this.dispatchNavigationEvent();
       });
-
-      onNavigation(this.toFullPath(this.routes.find(r => r.url === this.currentRoute).templateUrl));
     }
 
-    navigate(path) {
-      history.pushState({ }, '', path);
-      this.dispatchNavigationEvent();
+    listenLinks() {
+      document.addEventListener('click', (event) => {
+        if (event.target.hasAttribute('route')) {
+          event.preventDefault();
+          this.navigate(event.target.href);
+        }
+      });
     }
 
     toShortPath(path) {
@@ -56,6 +61,19 @@ wd = (function() {
     dispatchNavigationEvent() {
       document.dispatchEvent(new Event('navigate'));
     }
+
+    navigate(path) {
+      history.pushState({ }, '', path);
+      this.dispatchNavigationEvent();
+    }
+  }
+
+  class Logger {
+    static logGroup(groupName, lines) {
+      console.group(groupName);
+      lines.forEach(l => console.log(l));
+      console.groupEnd();
+    }
   }
 
   class WD {
@@ -64,7 +82,8 @@ wd = (function() {
         throw new Error(`Root element name can't be empty`);
       }
 
-      this.root = this.root = document.querySelector(`[wd-root=${rootName}]`);
+      this.root = document.querySelector(`[wd-root=${rootName}]`);
+      this.rootName = rootName;
 
       if (!this.root) {
         throw new Error(`Unable to find root element with name ${rootName}`);
@@ -75,7 +94,7 @@ wd = (function() {
       if (!this.root) {
         throw new Error('Root element isn\'t initialized, call createRoot() method to perform initialization');
       }
-      router = new Router(routes, location.pathname, (templateUrl) => {
+      WD.router.addRoutes(routes, this.rootName, (templateUrl) => {
         fetch(templateUrl).then(x => {
           const reader = x.body.getReader();
           let template = '';
@@ -94,14 +113,14 @@ wd = (function() {
     }
 
     navigate(path) {
-      if (this.apps[rootName]) {
+      if (WD.apps[rootName]) {
         throw new Error(`Router wasn't initialized yet`);
       }
 
-      this.router.navigate(path);
+      WD.router.navigate(path);
     }
 
-    root(rootName) {
+    static root(rootName) {
       return WD.apps[rootName];
     }
 
@@ -116,6 +135,7 @@ wd = (function() {
   }
 
   WD.apps = {};
+  WD.router = new Router(location.host === 'le0michine.github.io' ? location.pathname : '');
 
   return WD;
 })();
