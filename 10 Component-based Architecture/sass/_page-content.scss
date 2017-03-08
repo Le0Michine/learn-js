@@ -1,0 +1,25 @@
+.main-section {
+  display: flex;
+  padding: 0 30px 25px 30px;
+}
+
+.category-title {
+  display: flex;
+  align-items: center;
+  font-size: 3em;
+
+  &-line {
+    flex: 1;
+    @include border-top($color: lightgray);
+  }
+
+  &-text {
+    display: flex;
+    align-items: center;
+    margin: 0 20px;
+
+    img {
+      max-width: 100px;
+    }
+  }
+}

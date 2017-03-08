@@ -1,0 +1,36 @@
+@media all and (max-width: $max-mobile-width) {
+  .desktop-specific {
+    display: none !important;
+  }
+
+  .header-placeholder {
+    height: 45px;
+  }
+
+  .right-sidebar {
+    width: 100%;
+  }
+
+  .main-section {
+    flex-direction: column;
+
+    .main-article {
+      margin-right: 0;
+    }
+  }
+}
+
+@media all and (min-width: $min-desktop-width) {
+  .mobile-specific {
+    display: none !important;
+  }
+
+  .header-placeholder {
+    height: 100px;
+    width: 100%;
+  }
+
+  .right-sidebar {
+    width: 29%;
+  }
+}
