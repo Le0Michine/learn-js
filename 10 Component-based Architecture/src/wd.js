@@ -123,23 +123,33 @@ wd = (function() {
           if (!result.done) {
             reader.read().then(bufferProcessor);
           } else {
-            this.root.innerHTML = this.renderComponents(template);
+            // this.root.innerHTML = this.renderComponents(template);
+            this.root.innerHTML = template;
+            this.renderComponents();
           }
         };
         reader.read().then(bufferProcessor);
       });
     }
 
-    /**
-     * @param {string} template App html markup
-     * @returns {string} App template with rendered components
-     */
-    renderComponents(template) {
+    renderComponents() {
       this.components.forEach(component => {
-        const regex = new RegExp(`<${component.name}.*?>(.*?</${component.name}>)?`, 'gi');
-        template = template.replace(regex, componentTemplate => component.descriptor.beforeMount(this, this.fillTemplate(componentTemplate, component.descriptor.template)));
+        const createComponentElement = () => new DOMParser().parseFromString(component.descriptor.template, 'text/html').body.firstChild;
+
+        document.querySelectorAll(component.name).forEach(element => {
+          const data = this.getComponentData(element);
+          element.parentNode.replaceChild(component.descriptor.beforeMount(this, createComponentElement(), data), element);
+        });
       });
-      return template;
+    }
+
+    getComponentData(htmlElement) {
+      const result = { innerHTML: htmlElement.innerHTML };
+      Array.prototype.slice.call(htmlElement.attributes)
+        .forEach(function(attr) {
+            result[attr.name] = attr.value
+        });
+      return result;
     }
 
     fillTemplate(element, template) {

@@ -15,9 +15,11 @@ wd.createRoot('app')
 
 wd.createRoot('header')
     .routes([{ url: '*', templateUrl: '/src/templates/header.html' }])
-    .component('Link', {
+    .component('router-link', {
         template: '<a route href="{href}">{label}</a>',
-        beforeMount: function (app, template) {
-            return template;
+        beforeMount: function (app, element, data) {
+            element.setAttribute('href', data.href);
+            element.innerHTML = data.innerHTML;
+            return element;
         }
     });
