@@ -1,0 +1,77 @@
+.header.mobile-specific {
+  @include border-top-bottom($color: black);
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-bar.mobile-specific {
+  position: fixed;
+  overflow-y: auto;
+  left: 0;
+  top: 1px;
+  bottom: 0;
+  right: 50%;
+  background-color: white;
+  display: block;
+  @include border-right($color: black);
+  transform: translateX(-100%);
+  transition: $default-transition;
+}
+
+.mobile-navbar {
+  &:focus {
+    .nav-bar.mobile-specific {
+      transform: translateX(0);
+    }
+  }
+
+  .underlined-list {
+    list-style: none;
+    padding-left: 0;
+
+    &-item {
+      @include border-bottom($color: lightgray);
+      text-align: left;
+      text-transform: capitalize;
+      padding: 5px 0;
+
+      a {
+        color: black;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.mobile-login {
+  list-style: none;
+  padding-left: 0;
+  text-transform: uppercase;
+  text-align: left;
+  &-item {
+    padding: 5px 0;
+    a {
+      color: lightgray;
+      text-decoration: none;
+    }
+  }
+}
+
+.mobile-login, .underlined-list-item {
+  a {
+    &:focus, &:hover {
+      color: indianred;
+    }
+  }
+}
+
+.go-to {
+  position: relative;
+  @include border-all($color: lightgray);
+  @include border-radius(0);
+  width: 80%;
+  left: 10%;
+  font-size: 1.5em;
+  margin-top: 10px;
+  padding: 5px;
+}
