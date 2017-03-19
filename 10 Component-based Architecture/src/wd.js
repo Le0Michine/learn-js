@@ -152,13 +152,6 @@ wd = (function() {
       return result;
     }
 
-    fillTemplate(element, template) {
-      return template.replace(
-        /{(.*?)}/g,
-        // extracts attr value <CompName attr="value">
-        (m, name) => element.match(new RegExp(name + '=(["\'])([^"\']*?)\\1'))[2]);
-    }
-
     navigate(path) {
       if (WD.apps[rootName]) {
         throw new Error(`Router wasn't initialized yet`);
