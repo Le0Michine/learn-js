@@ -23,9 +23,9 @@
   },
   "scripts": {
     "build": "webpack",
-    "lint": "eslint src ; exit 0",
+    "lint": "eslint src",
     "start": "webpack-dev-server",
-    "test": "npm run lint ; mocha src/*.spec.js"
+    "test": "npm run lint & mocha src/*.spec.js"
   },
   "author": "Lev Mishin",
   "license": "ISC"
