@@ -1,0 +1,20 @@
+{
+  "name": "jscore2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "rollup": "^0.41.4"
+  },
+  "devDependencies": {
+    "node-sass": "^4.5.1",
+    "npm-sass": "^2.0.0",
+    "sass": "^0.5.0"
+  },
+  "scripts": {
+    "build": "rollup -i ./src/main.js --output index.js --format es",
+    "styles": "sass sass/index.scss:./index.css --watch"
+  },
+  "author": "Lev Mishin",
+  "license": "ISC"
+}

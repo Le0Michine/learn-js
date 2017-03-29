@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-Us">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tic tac toe</title>
+  <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body>
+  <div class="game">
+    <div id="gameField" tabindex="1" class="game-field">
+    </div>
+    <div class="game-controls">
+      <button id="newGame">Start new game</button>
+      <select id="rendererType">
+        <option value="default">Default</option>
+        <option value="canvas">Canvas</option>
+      </select>
+      <div class="top-buffer-m">
+        <pre id="gameLog">log</pre>
+      </div>
+    </div>
+  </div>
+
+  <template id="cellTemplate">
+    <div class="game-field-cell">
+      <div class="sign-O">
+        <span></span>
+      </div>
+      <div class="sign-X">
+        <span></span>
+      </div>
+    </div>
+  </template>
+
+  <div style="display: none;">
+    <img id="O-img" src="img/o.png">
+    <img id="X-img" src="img/x.png">
+  </div>
+
+  <script src="index.js"></script>
+</body>
